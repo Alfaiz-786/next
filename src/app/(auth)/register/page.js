@@ -7,6 +7,7 @@ import { signupSchema } from "@/schema/index";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { getSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function SignUpOne() {
   const [session, setSession] = useState(null);
@@ -68,14 +69,14 @@ export default function SignUpOne() {
 
   return (
     <section
-      className="min-h-screen bg-cover bg-center flex justify-center items-center"
+      className="min-h-screen  bg-cover bg-center flex justify-center items-center "
       style={{
         backgroundImage:
           "url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       }}
     >
-      <div className=" flex justify-center lg:h-fit">
-        <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
+      <div className=" flex justify-center w-full">
+        <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8 xl:w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl">
           <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
               Sign up
@@ -198,6 +199,9 @@ export default function SignUpOne() {
                   <button
                     type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                    onClick={() => {
+                      signIn("google");
+                    }}
                   >
                     Create Account
                   </button>
@@ -222,7 +226,7 @@ export default function SignUpOne() {
                 </span>
                 Sign up with Google
               </button>
-              <button
+              {/* <button
                 type="button"
                 className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
               >
@@ -237,7 +241,7 @@ export default function SignUpOne() {
                   </svg>
                 </span>
                 Sign up with Facebook
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

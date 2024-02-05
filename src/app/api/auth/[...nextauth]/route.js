@@ -3,6 +3,7 @@ import User from "@/models/resgister";
 import { connect } from "@/database/db";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
   providers: [
@@ -35,6 +36,10 @@ export const authOptions = {
           );
         }
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   session: {

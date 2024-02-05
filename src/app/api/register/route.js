@@ -3,6 +3,7 @@ import User from "@/models/resgister";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
+
 connect();
 
 export async function POST(req) {
